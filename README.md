@@ -53,5 +53,3 @@ VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=Miste
 
 5. 根据博客操作
 > https://zhuanlan.zhihu.com/p/421460116
-> 
-6. 继承测试 npm run exe
