@@ -1,0 +1,63 @@
+{
+  "name": "code-snipaste",
+  "private": true,
+  "main": "./electron/main.js",
+  "version": "0.0.0",
+  "scripts": {
+    "exe": "concurrently -k \"npm run dev\" \"npm run electron\"",
+    "build": "vite build",
+    "dev": "vite",
+    "ebuild": "vite build && electron-builder",
+    "electron": "wait-on tcp:3000 && cross-env NODE_ENV=prod electron .",
+    "start": "electron .",
+    "install": "install-app-deps",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@highlightjs/vue-plugin": "^2.0.1",
+    "aws-sdk": "^2.1148.0",
+    "highlight.js": "^11.5.1",
+    "mock-aws-s3": "^4.0.2",
+    "nock": "^13.2.6",
+    "robotjs": "^0.6.0",
+    "sqlite3": "^5.0.8",
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "autoprefixer": "^10.4.7",
+    "concurrently": "^7.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^19.0.3",
+    "electron-builder": "^23.0.3",
+    "electron-rebuild": "^3.2.7",
+    "postcss": "^8.4.14",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "tailwindcss": "^3.0.24",
+    "util": "^0.12.4",
+    "vite": "^2.9.9",
+    "wait-on": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.your-website.your-app",
+    "productName": "ElectronApp",
+    "copyright": "Copyright © 2021 <your-name>",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist_electron"
+    }
+  }
+}
